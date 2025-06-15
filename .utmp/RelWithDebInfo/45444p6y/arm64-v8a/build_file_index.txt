@@ -1,0 +1,2 @@
+C:\Users\User\Desktop\Unity\Unity_SCU_ARFoundation_Final\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\User\Desktop\Unity\Unity_SCU_ARFoundation_Final\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
