@@ -7,6 +7,7 @@ TagManager:
   - "\u7832\u5F48"
   - "\u6575\u4EBA"
   - Emblem
+  - Enemy
   layers:
   - Default
   - TransparentFX

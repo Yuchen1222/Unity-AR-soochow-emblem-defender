@@ -146,3 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthImage: {fileID: 0}
+  explosionEffect: {fileID: 8655839884117580746, guid: b5daf4fb7bc53a948976d48925ae026a, type: 3}
+  gameOverUI: {fileID: 0}
+  destroySound: {fileID: 8300000, guid: aef3ed8369709634bb2631ec5fa0e6ea, type: 3}
