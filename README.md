@@ -96,7 +96,7 @@
 > 已安裝 Unity 6 + Android Build Support 者，5 分鐘內可完成部署。
 
 ```bash
-git clone https://github.com/Yuchen1222/Unity_SCU_ARFoundation_Final.git
+git clone https://github.com/Yuchen1222/Unity-AR-soochow-emblem-defender.git
 ```
 
 1. 用 **Unity Hub** 開啟專案資料夾，等待 Package Manager 自動安裝套件
@@ -113,8 +113,8 @@ git clone https://github.com/Yuchen1222/Unity_SCU_ARFoundation_Final.git
 ### 1. 開啟專案
 
 ```bash
-git clone https://github.com/Yuchen1222/Unity_SCU_ARFoundation_Final.git
-# 使用 Unity Hub 開啟 Unity_SCU_ARFoundation_Final 資料夾
+git clone https://github.com/Yuchen1222/Unity-AR-soochow-emblem-defender.git
+# 使用 Unity Hub 開啟專案資料夾
 ```
 
 ### 2. 確認套件已安裝
