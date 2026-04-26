@@ -7,15 +7,19 @@
 ## 目錄
 
 - [專案簡介](#專案簡介)
+- [功能特色](#功能特色)
 - [遊戲玩法](#遊戲玩法)
 - [系統需求](#系統需求)
+- [快速開始](#快速開始)
 - [安裝與建置](#安裝與建置)
 - [操作說明](#操作說明)
+- [系統架構](#系統架構)
 - [專案結構](#專案結構)
 - [腳本說明](#腳本說明)
 - [預置物說明](#預置物說明)
 - [套件相依性](#套件相依性)
 - [開發備註](#開發備註)
+- [常見問題](#常見問題)
 
 ---
 
@@ -31,6 +35,16 @@
 - Unity 6 (URP 渲染管線)
 - AR Foundation 6.0.6 + ARCore 6.0.6
 - C# / TextMesh Pro / Particle System
+
+---
+
+## 功能特色
+
+| | |
+|---|---|
+| 📱 **AR 平面偵測** — 即時掃描現實地板，精準定位放置點 | 🏰 **校徽防禦** — 將東吳校徽錨定於真實空間中 |
+| 👾 **石頭人 AI** — 自動追蹤校徽，每 3 秒一波 | 💥 **點擊消滅** — 直覺觸控操作，點擊敵人觸發爆炸特效 |
+| ❤️ **血量系統** — 校徽受擊扣血，歸零即 Game Over | 🎆 **粒子特效** — CFXR 多段爆炸 + Kino Bloom 後處理 |
 
 ---
 
@@ -71,6 +85,23 @@
 | 相機 | 後置鏡頭 |
 
 > 確認裝置是否支援 ARCore：[https://developers.google.com/ar/devices](https://developers.google.com/ar/devices)
+
+---
+
+## 快速開始
+
+> 已安裝 Unity 6 + Android Build Support 者，5 分鐘內可完成部署。
+
+```bash
+git clone https://github.com/Yuchen1222/Unity_SCU_ARFoundation_Final.git
+```
+
+1. 用 **Unity Hub** 開啟專案資料夾，等待 Package Manager 自動安裝套件
+2. `File → Build Settings` → 選擇 **Android** → `Switch Platform`
+3. USB 連接 Android 裝置（啟用開發者模式與 USB 偵錯）
+4. `Build And Run`
+
+詳細設定請見 [安裝與建置](#安裝與建置)。
 
 ---
 
@@ -123,6 +154,31 @@ File → Build Settings → Build And Run
 | 重新開始 | Game Over 畫面出現後點擊 Retry 按鈕 |
 
 > 放置校徽後即無法移動，請選擇好位置後再點擊。
+
+---
+
+## 系統架構
+
+腳本之間的呼叫關係與資料流：
+
+```mermaid
+graph TD
+    A[玩家觸控 / 點擊] -->|AR Raycast| B(ARManager)
+    A -->|TouchPhase.Began| C(EmblemSpawner)
+    B -->|Instantiate| D[遊戲主體 Prefab\n含生成點 & UI]
+    C -->|Instantiate + Tag Emblem| E[校徽 SoochowEmblem]
+    D -->|包含| F(EnemySpawner)
+    F -->|InvokeRepeating 每 3 秒| G[石頭人 EnemyAI]
+    G -->|FindWithTag Emblem| E
+    G -->|OnTriggerEnter| H(EmblemHealth)
+    H -->|TakeDamage 10| H
+    H -->|HP = 0| I[Game Over UI]
+    A -->|Physics.Raycast| J(TapToDestroy)
+    J -->|命中 Tag Enemy| G
+    J -->|score + 1| K[分數 UI]
+    I -->|Retry 按鈕| L(RestartGame)
+    L -->|LoadScene| A
+```
 
 ---
 
@@ -365,6 +421,22 @@ public void RestartScene()
 - `EnemyAI` 在 `Start()` 尋找校徽：若校徽尚未放置，敵人將靜止不動（需確保校徽先放置或延遲生成敵人）
 - `TapToDestroy` 與 `EmblemSpawner` 共用左鍵/觸控事件，點擊放置校徽時可能同時觸發射線判定
 - 場景僅有一個（`SampleScene`），重啟遊戲以重新載入場景方式實現
+
+---
+
+## 常見問題
+
+**Q：裝置不支援 AR，應用程式閃退？**
+
+確認裝置在 [ARCore 支援清單](https://developers.google.com/ar/devices) 中，並已從 Play 商店安裝 **Google Play Services for AR**。
+
+**Q：Build 時出現 API Level 或 NDK 錯誤？**
+
+前往 `Edit → Project Settings → Player → Android`，確認 Minimum API Level 為 **Android 7.0（API 24）**，並在 Unity Hub 的 Installs 頁面為對應 Unity 版本安裝 **Android SDK & NDK Tools**。
+
+**Q：掃描地板很久都沒有偵測到平面？**
+
+確保環境光線充足，且地板表面有明顯紋理（純白色或強反光地板較難偵測）。緩慢移動手機讓 ARCore 建立空間特徵地圖，通常 5~10 秒內會出現平面標記。
 
 ---
 
