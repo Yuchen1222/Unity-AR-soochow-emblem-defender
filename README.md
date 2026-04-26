@@ -2,6 +2,8 @@
 
 > Unity ARFoundation 擴增實境塔防遊戲 | 東吳大學 2025 期末作品
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ---
 
 ## 目錄
@@ -20,6 +22,7 @@
 - [套件相依性](#套件相依性)
 - [開發備註](#開發備註)
 - [常見問題](#常見問題)
+- [License](#license)
 
 ---
 
@@ -437,6 +440,14 @@ public void RestartScene()
 **Q：掃描地板很久都沒有偵測到平面？**
 
 確保環境光線充足，且地板表面有明顯紋理（純白色或強反光地板較難偵測）。緩慢移動手機讓 ARCore 建立空間特徵地圖，通常 5~10 秒內會出現平面標記。
+
+---
+
+## License
+
+Copyright (c) 2025 Yu-Chen Huang
+
+本專案以 [MIT License](LICENSE) 授權發布，歡迎自由使用、修改與散布，惟需保留原始版權聲明。
 
 ---
 
