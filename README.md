@@ -1,8 +1,20 @@
-# 東吳校徽防衛戰 — AR Foundation 期末專案
+<div align="center">
 
-> Unity ARFoundation 擴增實境塔防遊戲 | 東吳大學 2025 期末作品
+# 東吳校徽防衛戰
+### AR Foundation 期末專案
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+**在現實空間中保衛東吳校徽的擴增實境塔防遊戲**
+
+![Unity](https://img.shields.io/badge/Unity-6000.x-black?logo=unity)
+![Platform](https://img.shields.io/badge/Platform-Android-green?logo=android)
+![AR Foundation](https://img.shields.io/badge/AR%20Foundation-6.0.6-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
+
+[![遊戲示範影片](https://img.youtube.com/vi/pncjaX2Ffgk/maxresdefault.jpg)](https://youtu.be/pncjaX2Ffgk)
+
+▲ 點擊圖片觀看實機操作影片
+
+</div>
 
 ---
 
@@ -31,8 +43,6 @@
 本專案為東吳大學 AR 應用課程期末作品，利用 **Unity ARFoundation + ARCore** 在 Android 裝置上實現擴增實境遊戲。
 
 玩家透過手機鏡頭掃描現實地板，將東吳校徽放置於真實空間中，並點擊消滅持續湧入的石頭人敵人，阻止牠們衝撞校徽。校徽血量歸零後遊戲結束。
-
-[![遊戲示範影片](https://img.youtube.com/vi/pncjaX2Ffgk/maxresdefault.jpg)](https://youtu.be/pncjaX2Ffgk)
 
 **核心技術：**
 - Unity 6 (URP 渲染管線)
