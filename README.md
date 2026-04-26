@@ -77,7 +77,7 @@
 ### 1. 開啟專案
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Yuchen1222/Unity_SCU_ARFoundation_Final.git
 # 使用 Unity Hub 開啟 Unity_SCU_ARFoundation_Final 資料夾
 ```
 
@@ -147,6 +147,7 @@ Unity_SCU_ARFoundation_Final/
 │   ├── 特效/                        # Particle effects (CFXR, Kino Bloom)
 │   ├── 石頭人/                      # 石頭人敵人模型資源
 │   ├── word/                       # 字型資源
+│   ├── TextMesh Pro/               # TMP 字型與範例資源
 │   ├── Settings/                   # URP 渲染設定
 │   └── XR/                         # AR/XR 設定檔
 ├── Packages/
@@ -164,7 +165,7 @@ Unity_SCU_ARFoundation_Final/
 
 ### ARManager.cs
 
-AR 場景管理器，負責在滑鼠點擊時對 AR 偵測平面執行光線投射，並在命中位置實例化遊戲主體預置物。
+AR 場景管理器，負責在點擊時對 AR 偵測平面執行光線投射，並在命中位置實例化遊戲主體預置物（含生成點、UI 等完整遊戲結構）。負責放置整體遊戲場景預置物，與 `EmblemSpawner` 各司其職：本腳本放置遊戲主體，`EmblemSpawner` 負責放置校徽本身。
 
 **掛載對象：** AR Session Origin（含 ARRaycastManager 元件的 GameObject）
 
