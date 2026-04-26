@@ -25,6 +25,8 @@
 
 玩家透過手機鏡頭掃描現實地板，將東吳校徽放置於真實空間中，並點擊消滅持續湧入的石頭人敵人，阻止牠們衝撞校徽。校徽血量歸零後遊戲結束。
 
+[![遊戲示範影片](https://img.youtube.com/vi/pncjaX2Ffgk/maxresdefault.jpg)](https://youtu.be/pncjaX2Ffgk)
+
 **核心技術：**
 - Unity 6 (URP 渲染管線)
 - AR Foundation 6.0.6 + ARCore 6.0.6
